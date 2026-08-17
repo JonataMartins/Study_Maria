@@ -1,0 +1,12 @@
+<div class="stat-card">
+  <div class="stat-content">
+    <p class="stat-title">{{ title() }}</p>
+    <h3 class="stat-value">{{ value() }}</h3>
+    @if (subtitle()) {
+      <span class="stat-subtitle">{{ subtitle() }}</span>
+    }
+  </div>
+  <div class="stat-icon" [class]="'stat-icon ' + variant()">
+    <i [class]="iconClass()"></i>
+  </div>
+</div>

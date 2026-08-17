@@ -1,0 +1,11 @@
+.dashboard-grid {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.dashboard-grid > app-stat-card {
+  flex: 1;
+  min-width: 240px; /* Garante que os cards não fiquem esmagados em telas de celular */
+}

@@ -1,0 +1,106 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.stat-card-container {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  width: 100%;
+  height: 100%;
+}
+
+.stat-card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Container do Ícone */
+.stat-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius);
+  background-color: var(--primary);
+  color: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left:auto;
+  margin-bottom: auto;
+}
+
+.stat-icon i {
+  font-size: 1.6rem;
+  line-height: 0;
+}
+
+/* Informações de Texto */
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--muted-foreground, #64748b);
+  text-transform: uppercase;
+}
+
+.stat-value {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--card-foreground);
+  line-height: 1.2;
+}
+
+.stat-subtitle {
+  font-size: 0.75rem;
+  color: var(--muted-foreground, #64748b);
+  opacity: 0.8;
+}
+
+.stat-icon.chart-1 {
+  color: var(--chart-1);
+  background-color: color-mix(in srgb, var(--chart-1) 30%, transparent);
+}
+
+.stat-icon.chart-2 {
+  color: var(--chart-2);
+  background-color: color-mix(in srgb, var(--chart-2) 30%, transparent);
+}
+
+.stat-icon.chart-3 {
+  color: var(--chart-3);
+  background-color: color-mix(in srgb, var(--chart-3) 30%, transparent);
+}
+
+.stat-icon.chart-4 {
+  color: var(--chart-4);
+  background-color: color-mix(in srgb, var(--chart-4) 30%, transparent);
+}
+
+.stat-icon.chart-5 {
+  color: var(--chart-5);
+  background-color: color-mix(in srgb, var(--chart-5) 30%, transparent);
+}
