@@ -1,6 +1,7 @@
+/* ====================================================
+   1. ESTILOS BASE DA SIDEBAR
+   ==================================================== */
 .sidebar {
-  width: 250px;
-  height: 100vh;
   background-color: var(--sidebar);
   color: var(--sidebar-foreground);
   border-right: 1px solid var(--sidebar-border);
@@ -10,7 +11,7 @@
   flex-direction: column;
 }
 
-.sidebar p{
+.sidebar p {
   opacity: 0.8;
 }
 
@@ -30,18 +31,16 @@
   justify-content: center;
   background-color: var(--sidebar-primary);
   border-radius: var(--radius);
-  flex-shrink: 0;  /* Impede que o quadrado amasse se o texto crescer */
+  flex-shrink: 0;
 }
 
-/* Centralização exata do ícone Flaticon/UI */
 .sidebar-header i {
   font-size: 1.8rem;
   color: var(--sidebar-primary-foreground);
-  line-height: 0; 
+  line-height: 0;
   display: inline-flex;
 }
 
-/* Grupo de textos: empilha o h3 em cima do p */
 .sidebar-header-group {
   display: flex;
   flex-direction: column;
@@ -65,6 +64,7 @@
   line-height: 1.2;
 }
 
+/* Navegação */
 .sidebar-nav ul {
   list-style: none;
   padding: 0;
@@ -75,7 +75,6 @@
   margin-bottom: 12px;
 }
 
-/* Regra unificada para os links */
 .sidebar-nav a {
   color: var(--sidebar-foreground);
   text-decoration: none;
@@ -91,23 +90,20 @@
   overflow: hidden;
 }
 
-/* 1. Efeito de Hover */
 .sidebar-nav a:hover {
   background-color: var(--sidebar-accent);
   color: var(--sidebar-accent-foreground);
   opacity: 1;
 }
 
-/* 2. Efeito quando a Rota está Ativa (routerLinkActive="ativo") */
 .sidebar-nav a.ativo {
   background-color: var(--sidebar-primary);
   color: var(--sidebar-primary-foreground);
   font-weight: var(--font-weight-medium);
   opacity: 1;
-  transform: translateX(0);
 }
 
-/* Info */
+/* Info do Professor */
 .sidebar-info {
   margin-top: auto;
   border-top: 1px solid var(--sidebar-border);
@@ -117,7 +113,6 @@
   gap: 12px;
 }
 
-/* Container do Avatar */
 .sidebar-info .avatar-container {
   width: 3.2rem;
   height: 3.2rem;
@@ -132,4 +127,109 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* Botão fechar (X) exclusivo para mobile/tablet */
+.close-menu-btn {
+  display: none;
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: var(--sidebar-foreground);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* ====================================================
+   2. CELULAR E TABLET (< 1024px): MENU EM TELA CHEIA (100% W/H)
+   ==================================================== */
+@media (max-width: 1023px) {
+  :host {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 9999;
+    box-sizing: border-box;
+    padding: 24px;
+    overflow-y: auto;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  }
+
+  /* Quando aberto, cobre 100% da tela */
+  .sidebar.aberta {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .sidebar-overlay {
+    display: none;
+  }
+
+  .close-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* --- APENAS O CENTRALIZAMENTO DOS BOTÕES AQUI --- */
+  .sidebar-nav a {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* ====================================================
+   3. LAPTOP / DESKTOP (≥ 1024px): FIXO NA LATERAL
+   ==================================================== */
+@media (min-width: 1024px) {
+  :host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    z-index: 100;
+    pointer-events: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 100vh;
+    position: static;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+
+  .sidebar-overlay {
+    display: none;
+  }
+
+  .close-menu-btn {
+    display: none;
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal, computed, output } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -18,6 +18,8 @@ interface NotificationItem {
 })
 export class HeadNotification {
   private router = inject(Router);
+
+  onToggleSidebar = output<void>();
 
   currentPage = signal<string>('Painel');
   showNotifications = signal<boolean>(false);
@@ -67,5 +69,8 @@ export class HeadNotification {
 
   toggleNotifications(): void {
     this.showNotifications.update((prev) => !prev);
+  }
+  toggleSidebar(): void {
+    this.onToggleSidebar.emit();
   }
 }

@@ -1,5 +1,12 @@
 <div class="head-notification">
   <div class="breadcrumb">
+    <button 
+      class="menu-toggle-btn" 
+      (click)="toggleSidebar()" 
+      aria-label="Abrir menu principal">
+      <i class="fi fi-rr-menu-burger"></i>
+    </button>
+
     <span class="app-name">Study Maria</span>
     <span class="separator">></span>
     <h5 class="page-title">{{ currentPage() }}</h5>

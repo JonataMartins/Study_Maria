@@ -1,0 +1,36 @@
+<div class="chart-card">
+  <div class="chart-header">
+    <div>
+      <h3>Desempenho por Turma</h3>
+      <p class="subtitle">Média mensal — Mar a Ago 2026</p>
+    </div>
+
+    <!-- Dropdown Customizado -->
+    <div class="custom-dropdown">
+      <button class="dropdown-trigger" (click)="toggleDropdown()" [class.active]="isDropdownOpen()">
+        <span>{{ selectedOptionLabel() }}</span>
+        <i class="fi fi-rr-angle-small-down arrow-icon"></i>
+      </button>
+
+      @if (isDropdownOpen()) {
+        <ul class="dropdown-menu">
+          @for (option of options; track option.value) {
+            <li 
+              class="dropdown-item" 
+              [class.selected]="selectedClass() === option.value"
+              (click)="selectClass(option.value, option.label)">
+              <span>{{ option.label }}</span>
+              @if (selectedClass() === option.value) {
+                <i class="fi fi-rr-check check-icon"></i>
+              }
+            </li>
+          }
+        </ul>
+      }
+    </div>
+  </div>
+
+  <div class="canvas-container">
+    <canvas #canvas></canvas>
+  </div>
+</div>

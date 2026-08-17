@@ -1,0 +1,171 @@
+/* ====================================================
+   CARD DO GRÁFICO E DROPDOWN (EMPILHADO EM TELAS < 1024px)
+   ==================================================== */
+
+.chart-card,
+.chart-card * {
+  box-sizing: border-box;
+}
+
+.chart-card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  width: 100%;
+  position: relative;
+}
+
+.chart-header {
+  display: flex;
+  flex-direction: column; /* Padrão: empilhado para evitar qualquer vazamento */
+  align-items: stretch;
+  gap: 16px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.chart-header-text {
+  width: 100%;
+}
+
+.chart-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.subtitle {
+  margin: 4px 0 0 0;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+/* --- DROPDOWN CUSTOMIZADO --- */
+.custom-dropdown {
+  position: relative;
+  width: 100%; /* Ocupa a largura total abaixo do texto */
+}
+
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%; /* Alinha perfeitamente com as bordas do card */
+}
+
+.dropdown-trigger:hover,
+.dropdown-trigger.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 84, 192, 0.12);
+}
+
+.arrow-icon {
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-trigger.active .arrow-icon {
+  transform: rotate(180deg);
+}
+
+/* MENU SUSPENSO - Totalmente contido na largura do card */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  padding: 6px;
+  margin: 0;
+  list-style: none;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  border-radius: calc(var(--radius) - 2px);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.dropdown-item:hover {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+.dropdown-item.selected {
+  background-color: rgba(67, 84, 192, 0.1);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.check-icon {
+  font-size: 0.75rem;
+  color: var(--primary);
+}
+
+.canvas-container {
+  position: relative;
+  height: 280px;
+  width: 100%;
+}
+
+/* ====================================================
+   DESKTOP / LAPTOP GRANDE (≥ 1024px)
+   Apenas em telas bem amplas eles voltam a ficar lado a lado
+   ==================================================== */
+@media (min-width: 1024px) {
+  .chart-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .chart-header-text {
+    width: auto;
+  }
+
+  .custom-dropdown {
+    width: auto;
+    min-width: 180px;
+  }
+
+  .dropdown-trigger {
+    width: auto;
+  }
+
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .canvas-container {
+    height: 320px;
+  }
+}

@@ -1,11 +1,17 @@
 <div class="layout-container">
-  <!-- Componente do menu lateral -->
-  <app-sidebar></app-sidebar>
+  <!-- Ouve a ação de fechar e passa o estado do signal -->
+  <app-sidebar 
+    [estaAberta]="sidebarAberta()" 
+    (onFechar)="fecharSidebar()">
+  </app-sidebar>
 
-  <!-- Área de exibição das páginas dinâmicas (Home e outras) -->
   <main class="conteudo-principal">
-    <!-- Componente de notificação -->
-    <app-head-notification></app-head-notification>
+    <!-- Ouve o clique do botão hambúrguer para abrir/fechar -->
+    <app-head-notification 
+      (onToggleSidebar)="toggleSidebar()">
+    </app-head-notification>
+
+    <!-- Conteúdo das páginas -->
     <router-outlet></router-outlet>
   </main>
 </div>

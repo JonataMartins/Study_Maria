@@ -1,9 +1,11 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { StatCardComponent } from '../../componentes/stat-card/stat-card';
+import { ChartDesempenho } from "../../componentes/chart-desempenho/chart-desempenho";
+import { DistribuicaoNotas } from "../../componentes/distribuicao-notas/distribuicao-notas";
 
 @Component({
   selector: 'app-painel',
-  imports: [StatCardComponent],
+  imports: [StatCardComponent, ChartDesempenho, DistribuicaoNotas],
   templateUrl: './painel.html',
   styleUrl: './painel.css',
 })

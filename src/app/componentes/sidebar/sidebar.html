@@ -1,37 +1,43 @@
-<aside class="sidebar">
+<aside class="sidebar" [class.aberta]="estaAberta()">
   <div class="sidebar-header">
     <span><i class="fi fi-rr-graduation-cap"></i></span>
     <div class="sidebar-header-group">
       <h3>Study Maria</h3>
       <p>Portal do Professor</p>
     </div>
+
+    <!-- Botão 'X' visível apenas em telas menores -->
+    <button class="close-menu-btn" (click)="fecharSidebar()" aria-label="Fechar menu">
+      <i class="fi fi-rr-cross"></i>
+    </button>
   </div>
 
   <nav class="sidebar-nav">
     <p>Menu</p>
     <ul>
       <li>
-        <a routerLink="/painel" routerLinkActive="ativo">
+        <a routerLink="/painel" routerLinkActive="ativo" (click)="fecharSidebar()">
           <span class="icon"><i class="fi fi-rr-layout-fluid"></i></span> Painel
         </a>
       </li>
       <li>
-        <a routerLink="/turmas" routerLinkActive="ativo">
+        <a routerLink="/turmas" routerLinkActive="ativo" (click)="fecharSidebar()">
           <span class="icon"><i class="fi fi-rr-book-open-cover"></i></span> Turmas
         </a>
       </li>
       <li>
-        <a routerLink="/alunos" routerLinkActive="ativo">
+        <a routerLink="/alunos" routerLinkActive="ativo" (click)="fecharSidebar()">
           <span class="icon"><i class="fi fi-rr-users-alt"></i></span> Alunos
         </a>
       </li>
       <li>
-        <a routerLink="/provas" routerLinkActive="ativo">
+        <a routerLink="/provas" routerLinkActive="ativo" (click)="fecharSidebar()">
           <span class="icon"><i class="fi fi-rr-document"></i></span> Provas
         </a>
       </li>
     </ul>
   </nav>
+
   <div class="sidebar-info">
     <div class="avatar-container">
       <img src="images/avatars/avatar-icon.jpg" alt="Foto de perfil de Maria" class="avatar-img" />

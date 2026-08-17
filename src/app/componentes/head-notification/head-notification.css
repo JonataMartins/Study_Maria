@@ -1,14 +1,53 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background-color: var(--background); /* Evita transparência na rolagem */
+  width: 100%;
+}
+
 .head-notification {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 12px 0;
+  padding: 16px 30px; /* Padding ajustado para alinhar com o restante da página */
   margin-bottom: 24px;
   border-bottom: 1px solid var(--border);
+  background-color: var(--background);
 }
 
 /* Breadcrumb / Título */
+
+/* Botão Hambúrguer */
+.menu-toggle-btn {
+  display: none; /* Escondido por padrão no Desktop */
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius);
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  transition: background-color 0.2s ease;
+}
+
+.menu-toggle-btn:hover {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Exibe o botão apenas em Telas Menores (< 1024px) */
+@media (max-width: 1023px) {
+  .menu-toggle-btn {
+    display: inline-flex;
+  }
+}
+
 .breadcrumb {
   display: flex;
   align-items: center;
