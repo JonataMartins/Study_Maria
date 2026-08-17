@@ -1,0 +1,135 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: var(--sidebar);
+  color: var(--sidebar-foreground);
+  border-right: 1px solid var(--sidebar-border);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar p{
+  opacity: 0.8;
+}
+
+/* Header */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.sidebar-header span {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sidebar-primary);
+  border-radius: var(--radius);
+  flex-shrink: 0;  /* Impede que o quadrado amasse se o texto crescer */
+}
+
+/* Centralização exata do ícone Flaticon/UI */
+.sidebar-header i {
+  font-size: 1.8rem;
+  color: var(--sidebar-primary-foreground);
+  line-height: 0; 
+  display: inline-flex;
+}
+
+/* Grupo de textos: empilha o h3 em cima do p */
+.sidebar-header-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.sidebar-header-group h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--sidebar-foreground);
+  line-height: 1.2;
+}
+
+.sidebar-header-group p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--sidebar-foreground);
+  opacity: 0.75;
+  line-height: 1.2;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 12px;
+}
+
+/* Regra unificada para os links */
+.sidebar-nav a {
+  color: var(--sidebar-foreground);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-weight: var(--font-weight-medium);
+  opacity: 0.8;
+  transition: all 0.25s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 1. Efeito de Hover */
+.sidebar-nav a:hover {
+  background-color: var(--sidebar-accent);
+  color: var(--sidebar-accent-foreground);
+  opacity: 1;
+}
+
+/* 2. Efeito quando a Rota está Ativa (routerLinkActive="ativo") */
+.sidebar-nav a.ativo {
+  background-color: var(--sidebar-primary);
+  color: var(--sidebar-primary-foreground);
+  font-weight: var(--font-weight-medium);
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Info */
+.sidebar-info {
+  margin-top: auto;
+  border-top: 1px solid var(--sidebar-border);
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Container do Avatar */
+.sidebar-info .avatar-container {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--sidebar-border);
+}
+
+.sidebar-info .avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
