@@ -1,0 +1,37 @@
+<div class="head-notification">
+  <div class="breadcrumb">
+    <span class="app-name">Study Maria</span>
+    <span class="separator">></span>
+    <h5 class="page-title">{{ currentPage() }}</h5>
+  </div>
+
+  <div class="notification-container">
+    <button class="notification-btn" (click)="toggleNotifications()" aria-label="Notificações">
+      <i class="fi fi-rr-bell"></i>
+      @if (unreadNotifications() > 0) {
+        <span class="notification-badge">{{ unreadNotifications() }}</span>
+      }
+    </button>
+
+    @if (showNotifications()) {
+      <div class="notification-popover">
+        <div class="popover-header">
+          <h6>Notificações</h6>
+        </div>
+        <ul class="popover-list">
+          @for (item of notifications(); track item.id) {
+            <li>
+              <i [class]="item.icon + ' icon'"></i>
+              <div>
+                <p>{{ item.message }}</p>
+                <small>{{ item.time }}</small>
+              </div>
+            </li>
+          } @empty {
+            <li class="empty-state">Nenhuma notificação nova</li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</div>

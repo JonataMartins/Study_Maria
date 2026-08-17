@@ -1,3 +1,30 @@
+.painel-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.painel-header h1 {
+  margin: 0 0 6px 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.painel-date {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted-foreground);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.painel-date i {
+  color: var(--primary);
+}
+
+/* O grid dos cards mantendo a responsividade flex */
 .dashboard-grid {
   display: flex;
   gap: 20px;
@@ -7,5 +34,5 @@
 
 .dashboard-grid > app-stat-card {
   flex: 1;
-  min-width: 240px; /* Garante que os cards não fiquem esmagados em telas de celular */
+  min-width: 240px;
 }

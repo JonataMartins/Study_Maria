@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router'; // Esses imports são para eu conseguir colocar os links corretamente e o outro para ver qual link está ativo no momento
 
 @Component({
@@ -8,4 +8,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router'; // Esses imports
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css'
 })
-export class SidebarComponent {}
+
+export class SidebarComponent {
+  professorName = signal<string>('Maria Melo');
+  subject = signal<string>('História');
+}
