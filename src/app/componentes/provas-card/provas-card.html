@@ -1,0 +1,23 @@
+<div class="card-container">
+  <!-- Topo -->
+  <div class="card-header">
+    <h3 class="card-title">Próximas provas</h3>
+    <a routerLink="/provas" class="link-ver-todas">
+      Ver todas
+      <i class="fi fi-rr-angle-small-right"></i>
+    </a>
+  </div>
+
+  <!-- Lista com os 3 componentes -->
+  <div class="card-content">
+    <app-document-item
+      *ngFor="let prova of provas"
+      [icon]="prova.icon"
+      [title]="prova.title"
+      [subtitle]="prova.subtitle"
+      [date]="prova.date"
+      [badgeText]="prova.badgeText"
+      [badgeType]="prova.badgeType">
+    </app-document-item>
+  </div>
+</div>

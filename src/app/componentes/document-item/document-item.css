@@ -1,0 +1,140 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.document-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background-color: color-mix(in srgb, var(--status-color) 3%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.document-item:hover {
+  border-color: var(--status-color);
+}
+
+/* --- LADO ESQUERDO --- */
+.doc-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.doc-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: color-mix(in srgb, var(--status-color) 8%, transparent);
+  color: var(--status-color);
+  border-radius: calc(var(--radius) - 2px);
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.doc-icon-box i,
+.doc-icon-box svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+}
+
+.doc-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.doc-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doc-subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- LADO DIREITO --- */
+.doc-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.doc-date {
+  font-size: 0.775rem;
+  color: var(--muted-foreground);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.doc-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  font-size: 0.725rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  background-color: color-mix(in srgb, var(--status-color) 8%, transparent);
+  color: var(--status-color);
+  white-space: nowrap;
+}
+
+/* ====================================================
+   AJUSTE MOBILE (< 480px)
+   ==================================================== */
+@media (max-width: 480px) {
+  .document-item {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .doc-left {
+    gap: 10px;
+  }
+
+  .doc-icon-box {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .doc-title {
+    font-size: 0.85rem;
+  }
+
+  .doc-subtitle {
+    font-size: 0.75rem;
+  }
+}

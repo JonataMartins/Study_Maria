@@ -1,0 +1,64 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card-container {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+/* --- TOPO --- */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.link-ver-todos {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.link-ver-todos:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.link-ver-todos i {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+/* --- LISTA --- */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  flex: 1;
+}

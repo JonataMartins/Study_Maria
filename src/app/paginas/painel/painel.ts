@@ -1,11 +1,13 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { StatCardComponent } from '../../componentes/stat-card/stat-card';
+import { StatCard } from '../../componentes/stat-card/stat-card';
 import { ChartDesempenho } from "../../componentes/chart-desempenho/chart-desempenho";
 import { DistribuicaoNotas } from "../../componentes/distribuicao-notas/distribuicao-notas";
+import { ProvasCard } from "../../componentes/provas-card/provas-card";
+import { AlunosDestaqueCard } from "../../componentes/alunos-destaque-card/alunos-destaque-card";
 
 @Component({
   selector: 'app-painel',
-  imports: [StatCardComponent, ChartDesempenho, DistribuicaoNotas],
+  imports: [StatCard, ChartDesempenho, DistribuicaoNotas, ProvasCard, AlunosDestaqueCard],
   templateUrl: './painel.html',
   styleUrl: './painel.css',
 })

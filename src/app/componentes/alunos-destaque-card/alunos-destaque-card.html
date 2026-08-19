@@ -1,0 +1,21 @@
+<div class="card-container">
+  <!-- Topo -->
+  <div class="card-header">
+    <h3 class="card-title">Alunos em destaque</h3>
+    <a routerLink="/alunos" class="link-ver-todos">
+      Ver todos
+      <i class="fi fi-rr-angle-small-right"></i>
+    </a>
+  </div>
+
+  <!-- Lista dos Alunos -->
+  <div class="card-content">
+    <app-aluno-item
+      *ngFor="let aluno of alunos"
+      [nome]="aluno.nome"
+      [turma]="aluno.turma"
+      [media]="aluno.media"
+      [fotoUrl]="aluno.fotoUrl">
+    </app-aluno-item>
+  </div>
+</div>

@@ -6,7 +6,7 @@ import { Component, input } from '@angular/core';
   templateUrl: './stat-card.html',
   styleUrl: './stat-card.css',
 })
-export class StatCardComponent {
+export class StatCard {
   title = input.required<string>();
   value = input.required<string | number>();
   subtitle = input<string>('');

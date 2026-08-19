@@ -1,0 +1,23 @@
+<div class="aluno-item">
+  <!-- Esquerda: Avatar + Nome e Turma -->
+  <div class="aluno-left">
+    <!-- Círculo do Avatar -->
+    <div class="aluno-avatar">
+      <img *ngIf="fotoUrl" [src]="fotoUrl" [alt]="nome" />
+      <span *ngIf="!fotoUrl">{{ iniciais }}</span>
+    </div>
+
+    <!-- Informações do Aluno -->
+    <div class="aluno-info">
+      <h4 class="aluno-nome" [title]="nome">{{ nome }}</h4>
+      <p class="aluno-turma" [title]="turma">{{ turma }}</p>
+    </div>
+  </div>
+
+  <!-- Direita: Nota com estilo Badge Success -->
+  <div class="aluno-right">
+    <span class="aluno-badge-success">
+      {{ media }}
+    </span>
+  </div>
+</div>

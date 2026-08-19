@@ -3,12 +3,13 @@
   <header class="painel-header">
     <h1>{{ greeting() }}, Prof. {{ professorName() }}</h1>
     <p class="painel-date">
+      <i class="fi fi-rr-calendar"></i>
       {{ formattedDate() }}
     </p>
   </header>
 
-  <!-- Grid dos Cards -->
-  <div class="dashboard-grid">
+  <!-- Linha 1: Stat Cards (4 cards de resumo) -->
+  <div class="painel-grid-stats">
     <app-stat-card
       title="Total de Alunos"
       value="125"
@@ -46,15 +47,15 @@
     </app-stat-card>
   </div>
 
-  <div class="dashboard-grid">
+  <!-- Linha 2: Gráficos (Proporção 2:1) -->
+  <div class="painel-grid-charts">
     <app-chart-desempenho></app-chart-desempenho>
     <app-distribuicao-notas></app-distribuicao-notas>
   </div>
 
-  <div class="dashboard-grid">
-    <app-chart-desempenho></app-chart-desempenho>
-    <app-distribuicao-notas></app-distribuicao-notas>
+  <!-- Linha 3: Cards de Lista (Proporção 50% - 50%) -->
+  <div class="painel-grid-cards">
+    <app-provas-card></app-provas-card>
+    <app-alunos-destaque-card></app-alunos-destaque-card>
   </div>
-
-
 </div>

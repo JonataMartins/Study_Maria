@@ -1,9 +1,19 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .painel-container {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* ====================================================
+   CABEÇALHO
+   ==================================================== */
 .painel-header h1 {
   margin: 0 0 6px 0;
   font-size: 1.75rem;
@@ -25,57 +35,100 @@
 }
 
 /* ====================================================
-   GRID RESPONSIVO
+   LINHA 1: STAT CARDS 
    ==================================================== */
-.dashboard-grid {
-  display: flex;
+.painel-grid-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   width: 100%;
-  flex-wrap: wrap;
-  align-items: stretch; /* Garante que os cards na mesma linha tenham a mesma altura */
 }
 
-/* Stat Cards padrão */
-.dashboard-grid > app-stat-card {
-  flex: 1 1 200px;
-  min-width: 0;
+/* Telas de Laptops/Monitores menores (entre 900px e 1300px) */
+@media (max-width: 1300px) and (min-width: 768px) {
+  .painel-grid-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* ====================================================
-   TELAS GRANDES (DESKTOP > 1024px): PROPORÇÃO 2 - 1
-   ==================================================== */
-.dashboard-grid > app-chart-desempenho {
-  flex: 2 1 400px; /* Ocupa 2 frações do espaço */
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.dashboard-grid > app-distribuicao-notas {
-  flex: 1 1 250px; /* Ocupa 1 fração do espaço */
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ====================================================
-   TELAS MÉDIAS (TABLETS / 768px até 1024px): PROPORÇÃO 50% - 50%
-   ==================================================== */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .dashboard-grid > app-chart-desempenho,
-  .dashboard-grid > app-distribuicao-notas {
-    flex: 1 1 calc(50% - 10px); /* Força 50% exatos para não espremer */
-    max-width: calc(50% - 10px);
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+  .painel-grid-stats {
+    grid-template-columns: 1fr;
   }
 }
 
 /* ====================================================
-   TELAS PEQUENAS (MOBILE < 768px): EMPILHAR 100%
+   LINHA 2: GRÁFICOS (Gráfico Desempenho vs Distribuição)
    ==================================================== */
+.painel-grid-charts {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+/* Desktop (> 1024px): Proporção 2 para 1 */
+.painel-grid-charts > app-chart-desempenho {
+  flex: 2 1 400px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.painel-grid-charts > app-distribuicao-notas {
+  flex: 1 1 250px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tablets (768px até 1024px): 50% - 50% */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .painel-grid-charts > app-chart-desempenho,
+  .painel-grid-charts > app-distribuicao-notas {
+    flex: 1 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+}
+
+/* Mobile (< 768px): Empilhar 100% */
 @media (max-width: 767px) {
-  .dashboard-grid > app-chart-desempenho,
-  .dashboard-grid > app-distribuicao-notas {
+  .painel-grid-charts > app-chart-desempenho,
+  .painel-grid-charts > app-distribuicao-notas {
     flex: 1 1 100%;
     max-width: 100%;
+  }
+}
+
+/* ====================================================
+   LINHA 3: CARDS DE LISTA (Provas e Alunos em Destaque)
+   ==================================================== */
+.painel-grid-cards {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+}
+
+.painel-grid-cards > app-provas-card,
+.painel-grid-cards > app-alunos-destaque-card,
+.painel-grid-cards > * {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .painel-grid-cards {
+    flex-direction: column;
+  }
+  
+  .painel-grid-cards > * {
+    flex: 1 1 auto;
+    width: 100%;
   }
 }
