@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,15 +9,18 @@ import { CommonModule } from '@angular/common';
   styleUrl: './aluno-item.css'
 })
 export class AlunoItemComponent {
-  @Input() nome: string = '';
-  @Input() turma: string = '';
-  @Input() media: string | number = '0.0';
-  @Input() fotoUrl?: string;
+  nome = input.required<string>();
+  turma = input.required<string>();
+  media = input<string | number>('0.0');
+  fotoUrl = input<string>();
 
-  get iniciais(): string {
-    if (!this.nome) return '';
-    const nomes = this.nome.trim().split(' ');
+  // Computed Signal: Recalcula automaticamente quando nome() muda
+  iniciais = computed(() => {
+    const nomeAtual = this.nome();
+    if (!nomeAtual) return '';
+    
+    const nomes = nomeAtual.trim().split(' ');
     if (nomes.length === 1) return nomes[0].substring(0, 2).toUpperCase();
     return (nomes[0][0] + nomes[nomes.length - 1][0]).toUpperCase();
-  }
+  });
 }

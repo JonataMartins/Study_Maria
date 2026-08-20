@@ -57,7 +57,6 @@ export class DistribuicaoNotas implements AfterViewInit {
         {
           label: 'Alunos',
           data: this.distributionData['all'],
-          // ✅ Array de cores para cada barra (uma para cada faixa)
           backgroundColor: [
             '#E53E3E', // 0–4  (Vermelho / Alerta)
             '#DD6B20', // 4–5  (Laranja / Atenção)

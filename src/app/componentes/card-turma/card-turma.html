@@ -1,0 +1,49 @@
+<div class="turma-card-container" [routerLink]="link()" [class.clickable]="!!link()">
+  <!-- 1. Topo -->
+  <div class="turma-card-header">
+    <!-- Ícone recebe a cor Hex no texto e uma versão com transparência Hex no fundo -->
+    <div class="turma-icon-box" [style.color]="cor()" [style.background-color]="cor() + '20'">
+      <i [class]="icon()"></i>
+    </div>
+    <div class="turma-header-info">
+      <h3 class="turma-title" [title]="titulo()">{{ titulo() }}</h3>
+      <p class="turma-subtitle" [title]="subtitulo()">{{ subtitulo() }}</p>
+    </div>
+  </div>
+
+  <!-- 2. Meio: 3 Filhos -->
+  <div class="turma-card-grid">
+    <app-info-card-turma [valor]="totalAlunos()" subtitulo="Alunos" [cor]="cor()">
+    </app-info-card-turma>
+
+    <app-info-card-turma [valor]="taxaAprovacao() + '%'" subtitulo="Aprovação" [cor]="cor()">
+    </app-info-card-turma>
+
+    <app-info-card-turma [valor]="'Sala ' + numeroSala()" subtitulo="Local" [cor]="cor()">
+    </app-info-card-turma>
+  </div>
+
+  <!-- 3. Barra de Progresso -->
+  <div class="turma-progresso-box">
+    <div class="progresso-info">
+      <span class="progresso-label">Taxa de aprovação</span>
+      <span class="progresso-valor">{{ taxaAprovacao() }}%</span>
+    </div>
+    <div class="progresso-bar-bg">
+      <!-- Preenchimento recebe o Hex direto no background -->
+      <div
+        class="progresso-bar-fill"
+        [style.width]="progressoLargura()"
+        [style.background-color]="cor()"
+      ></div>
+    </div>
+  </div>
+
+  <hr class="turma-divider" />
+
+  <!-- 4. Rodapé -->
+  <div class="turma-card-footer">
+    <i class="fi fi-rr-clock-three"></i>
+    <span>{{ diasAula() }}</span>
+  </div>
+</div>

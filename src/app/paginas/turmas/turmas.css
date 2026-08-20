@@ -1,0 +1,58 @@
+.turmas-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Header Flexbox */
+.turmas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.turmas-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+}
+
+/* Grid de 2 Colunas */
+.turmas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.turma-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* Garante o alinhamento perfeito do ícone no centro exato */
+.turma-icon-box i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsivo para Telas Pequenas */
+@media (max-width: 768px) {
+  .turmas-grid {
+    grid-template-columns: 1fr; /* Viram 1 coluna no celular e tablets menores */
+  }
+}

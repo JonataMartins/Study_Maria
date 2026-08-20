@@ -1,1 +1,71 @@
-<p>turmas works!</p>
+<div class="turmas-page-container">
+  <!-- Topo: Título na Esquerda e Botão na Direita -->
+  <div class="turmas-header">
+    <h1 class="turmas-title">Turmas</h1>
+    <app-add-button title="Nova Turma" link="/turmas/nova"></app-add-button>
+  </div>
+
+  <!-- Grid 2 Colunas -->
+  <div class="turmas-grid">
+    <app-card-turma
+      link="/turmas/9A"
+      cor="#6366f1"
+      titulo="Turma 9º Ano A"
+      subtitulo="Matemática"
+      [totalAlunos]="32"
+      [taxaAprovacao]="90"
+      [numeroSala]="104"
+      diasAula="Segundas e Quartas"
+    >
+    </app-card-turma>
+
+    <app-card-turma
+      link="/turmas/8B"
+      cor="#10b981"
+      titulo="Turma 8º Ano B"
+      subtitulo="Biologia"
+      [totalAlunos]="26"
+      [taxaAprovacao]="95"
+      [numeroSala]="201"
+      diasAula="Terças e Quintas"
+    >
+    </app-card-turma>
+
+    <app-card-turma
+      link="/turmas/7C"
+      cor="#f59e0b"
+      titulo="Turma 7º Ano C"
+      subtitulo="História"
+      [totalAlunos]="30"
+      [taxaAprovacao]="82"
+      [numeroSala]="102"
+      diasAula="Sextas-feiras"
+    >
+    </app-card-turma>
+
+    <app-card-turma
+      link="/turmas/6A"
+      cor="#a82578"
+      titulo="Turma 6º Ano A"
+      subtitulo="História"
+      [totalAlunos]="28"
+      [taxaAprovacao]="78"
+      [numeroSala]="100"
+      diasAula="Sextas-feiras"
+    >
+    </app-card-turma>
+
+    <app-card-turma
+      icon="fi fi-rr-flower"
+      link="/turmas/6A"
+      cor="#ffe869"
+      titulo="Turma 6º Ano A"
+      subtitulo="História"
+      [totalAlunos]="28"
+      [taxaAprovacao]="60"
+      [numeroSala]="100"
+      diasAula="Sextas-feiras"
+    >
+    </app-card-turma>
+  </div>
+</div>

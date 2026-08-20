@@ -1,20 +1,20 @@
-<div class="document-item" [style.--status-color]="statusColor">
+<div class="document-item" [style.--status-color]="statusColor()">
   <!-- Esquerda: Ícone + Textos -->
   <div class="doc-left">
     <div class="doc-icon-box">
-      <i [class]="icon"></i>
+      <i [class]="icon()"></i>
     </div>
     <div class="doc-info">
-      <h4 class="doc-title" [title]="title">{{ title }}</h4>
-      <p class="doc-subtitle" [title]="subtitle">{{ subtitle }}</p>
+      <h4 class="doc-title" [title]="title()">{{ title() }}</h4>
+      <p class="doc-subtitle" [title]="subtitle()">{{ subtitle() }}</p>
     </div>
   </div>
 
   <!-- Direita: Data + Badge -->
   <div class="doc-right">
-    <span class="doc-date" *ngIf="date">{{ date }}</span>
-    <span class="doc-badge" *ngIf="badgeText">
-      {{ badgeText }}
+    <span class="doc-date" *ngIf="date()">{{ date() }}</span>
+    <span class="doc-badge" *ngIf="badgeText()">
+      {{ badgeText() }}
     </span>
   </div>
 </div>
